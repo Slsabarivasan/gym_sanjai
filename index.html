@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    #introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+  height: 100vh;
+}
+
+
+.video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #d4ff00, #00ffd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.down-arrow {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(4px);
+  }
+}
+.vitalpass-cards {
+  background-color: #0f1014;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.vitalpass-card {
+  background-color: #1a1b1f;
+  border: 1px solid #2c2d31;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 280px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vitalpass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.vitalpass-card h4 {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin-bottom: 0.5rem;
+  text-transform: lowercase;
+}
+
+.vitalpass-card h2 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.elite {
+  color: #ffc93c;
+}
+
+.pro {
+  background: linear-gradient(90deg, #bbb, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.select {
+  color: #ffffff;
+}
+
+.vitalpass-card p {
+  font-size: 0.95rem;
+  color: #cfcfcf;
+  line-height: 1.5;
+}
+.colour{
+  color: black;
+}
+
+.scroll-reveal-section {
+      display: flex;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 5rem 1rem;
+      min-height: 100vh;
+      opacity: 0;
+      transform: translateY(150px);
+      transition: all 1.2s ease-in-out;
+    }
+
+    .scroll-reveal-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-image {
+      flex: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .scroll-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .scroll-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .scroll-text {
+      flex: 1;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .scroll-reveal-section {
+        flex-direction: column;
+      }
+
+      .scroll-text {
+        font-size: 2rem;
+        margin: 1rem 0;
+      }
+
+      .scroll-image {
+        width: 80%;
+      }
+    }
+
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      background: linear-gradient(to right, #0f111a, #1c1e29);
+      color: #fff;
+    }
+
+
+
+
+    .vitalpass-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .vitalpass-section h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .learn-more {
+      color: #1da1f2;
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 3rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #1e1f2f;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ccc;
+    }
+
+    .card-subtitle {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-subtitle.elite {
+      color: #ffc93c;
+    }
+
+    .card-subtitle.pro {
+      color: #fff;
+    }
+
+    .card-subtitle.play {
+      color: #00ffae;
+    }
+
+    .card-subtitle.select {
+      color: #ffffff;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0;
+    }
+
+    .card ul li {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: #1da1f2;
+      position: absolute;
+      left: -1rem;
+    }
+
+    @media (max-width: 768px) {
+      .vitalpass-section h1 {
+        font-size: 2rem;
+      }
+    }
+    .vital-section {
+  text-align: center;
+  color: white;
+  padding: 20px 10px;
+  background-color: #1a1a2e;
+}
+
+.vital-title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.vital-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  gap: 15px;
+  padding: 10px;
+}
+
+.vital-career, .vital-franchise {
+  background: linear-gradient(135deg, #2a2d3e, #4a6eb2);
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-basis: 100%;
+}
+
+.vital-subtitle {
+  font-size: 1.2em;
+  font-weight: 600;
+  background: linear-gradient(90deg, #facc15, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.vital-team {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.vital-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.vital-text {
+  font-size: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.vital-link {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.8em;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.vital-link:hover {
+  background-color: #1e90ff;
+  color: #ffffff;
+}
+
+/* Media Queries */
+@media (min-width: 576px) {
+  .vital-title { font-size: 2em; }
+  .vital-subtitle { font-size: 1.5em; }
+  .vital-text { font-size: 12px; }
+  .vital-link { font-size: 0.9em; padding: 6px 12px; margin-top: 10px; }
+  .vital-avatar { width: 60px; height:60px; }
+  .vital-team { height: 180px; }
+}
+
+@media (min-width: 768px) {
+  .vital-container { flex-direction: row; justify-content: space-around; }
+  .vital-career, .vital-franchise { flex-basis: 45%; max-width: 500px; }
+  .vital-title { font-size: 2.5em; }
+  .vital-subtitle { font-size: 1.8em; }
+  .vital-text { font-size: 14px; }
+  .vital-link { font-size: 1em; padding: 8px 15px; }
+  .vital-avatar { width: 60px; height: 60px; }
+  .vital-team { height: 200px; }
+  .vital-section { padding: 30px 20px; }
+  .vital-container { padding: 15px; gap: 20px; }
+}
+
+@media (min-width: 1200px) {
+  .vital-container { justify-content: center; }
+  .vital-career, .vital-franchise { flex-basis: 40%; max-width: 600px; }
+  .vital-title { font-size: 3.5em; }
+  .vital-subtitle { font-size: 2.5em; }
+  .vital-text { font-size: 18px; }
+  .vital-link { font-size: 1.2em; padding: 10px 20px; }
+  .vital-avatar { width: 80px; height: 80px; }
+  .vital-team { height: 250px; }
+  .vital-section { padding: 40px 20px; }
+  .vital-container { padding: 20px; gap: 30px; }
+}
+
+        .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 60px;
+      background-color: #000;
+    }
+
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .footer-logo span {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .footer-description {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #bbb;
+      max-width: 400px;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex: 2;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-left: 40px;
+    }
+
+    .footer-column {
+      margin: 10px 20px;
+      min-width: 150px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #bbb;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-right {
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .store-buttons img {
+      width: 140px;
+      margin: 10px 0;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons img {
+      width: 28px;
+      margin-right: 10px;
+      /* background-color: transparent;
+      filter:contrast(30%) ;
+      transition: filter 0.3s; */
+    }
+
+    .social-icons img:hover {
+      filter: none;
+    }
+
+    @media (max-width: 900px) {
+      .footer {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+
+      .footer-columns {
+        margin-left: 0;
+      }
+
+      .footer-right {
+        margin-top: 20px;
+      }
+    }
+
+    .bodys {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .related-searches {
+  background-color: #111;
+  padding: 40px 20px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.related-searches h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.related-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.related-columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 15px 20px 0;
+  flex: 1 1 150px;
+}
+
+.related-columns li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.related-columns li:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+
+.colours{
+  
+  background-color: white !important;
+}
+.colourss{
+  color: white !important;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+  <!-- Navbar -->
+  <nav class="navbar colours navbar-expand-lg " style="background-color: transparent;">
+    <div class="container-fluid">
+      
+      <!-- Navbar brand (left) -->
+      <a class="navbar-brand d-flex align-items-center mt-2 mt-lg-0" href="#">
+        <img
+          src="./ChatGPT Image Apr 11, 2025, 12_55_44 PM.png"
+          height="50"
+          alt="MDB Logo"
+          loading="lazy"
+          class="me-2"
+        />
+        <span class="fw-bold text-dark">VITAL FIT</span>
+      </a>
+      
+  
+      <!-- Centered nav links -->
+      <div class="d-flex justify-content-center flex-grow-1">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="#">FITNESS</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Left side location -->
+<!-- Left: Location -->
+<div class="d-flex align-items-center me-4" style="color: #212529;">
+  <span class="me-1 fw-bold">BANGALORE</span>
+  <i class="bi bi-geo-alt"></i>
+</div>
+
+<!-- Right: Profile Icon -->
+<div class="d-flex align-items-center gap-3">
+  <i class="bi bi-person-circle colour "></i>
+</div>
+
+
+
+
+  
+      
+  
+    </div>
+  </nav>
+  
+<!-- Navbar -->
+
+<div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel" data-mdb-carousel-init>
+  <!-- Carousel Caption Content -->
+<div class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center">
+  <h1 class="display-1 fw-bold gradient-text">VITAL FIT</h1>
+  <p class="lead text-white mb-4">A fitness movement that is worth breaking a sweat for</p>
+  <a href="#nextSection" class="btn btn-light btn-lg fw-bold">EXPLORE VITALPASS</a>
+  <div class="mt-4">
+    <a href="#plans" style="background-color: transparent; border: none;">
+    <i class="bi bi-chevron-down down-arrow"></i>
+    </a>
+  </div>
+</div>
+
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="./urlforgym.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    
+
+    
+  </div>
+ 
+</div>
+</div>
+
+</header>
+<section class="vitalpass-cards" id="plans">
+  <div class="card-container">
+    <div class="vitalpass-card">
+      <h4>vitalpass</h4>
+      <h2 class="elite">ELITE</h2>
+      <p>Unlimited access to group classes,<br>all gyms and at-home workouts</p>
+    </div>
+
+    <div class="vitalpass-card">
+      <h4>vitalpass</h4>
+      <h2 class="pro">PRO</h2>
+      <p>Unlimited access to all PRO gyms<br>and at-home workouts</p>
+    </div>
+
+    <div class="vitalpass-card">
+      <h4>vitalpass</h4>
+      <h2 class="select">SELECT</h2>
+      <p>Unlimited access to single center<br>and at-home workouts</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="scroll-reveal-section" id="scroll-banner">
+  <div class="scroll-image">
+    <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=600&q=80" alt="Fitness 1" />
+  </div>
+  <div class="scroll-text">
+    One membership<br>for all your fitness needs
+  </div>
+  <div class="scroll-image">
+    <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=600&q=80" alt="Fitness 2" />
+  </div>
+</section>
+
+
+<section class="vitalpass-section">
+  <h1>vitalpass</h1>
+  <a class="learn-more" href="#">LEARN MORE</a>
+
+  <div class="card-grid">
+    <!-- ELITE Card -->
+    <div class="card colourss">
+      <div class="card-image-wrapper">
+        <img src="./gym img.jpg" alt="ELITE">
+        <div class="card-overlay-text">
+          <div class="overlay-title">Vitalpass ELITE</div>
+          <!-- <div class="overlay-subtitle"><h3></h3></div> -->
+        </div>
+      </div>
+      <div class="card-content">
+        <h3>Unlimited access to</h3>
+        <ul>
+          <li>At-center group classes</li>
+          <li>All ELITE & PRO gyms</li>
+          <li>At-home live workouts</li>
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- PRO Card -->
+    <div class="card colourss">
+      <div class="card-image-wrapper">
+        <img src="./girls gym.webp" alt="PRO">
+        <div class="card-overlay-text">
+          <div class="overlay-title">Vitalpass PRO</div>
+          <!-- <div class="overlay-subtitle"><h3></h3></div> -->
+        </div>
+      </div>
+      <div class="card-content">
+        <h3>Unlimited access to</h3>
+        <ul>
+          <li>All PRO gyms</li>
+          <li>2 Sessions/month at ELITE gyms & group classes</li>
+          <li>At-home live workouts</li>
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- PLAY Card -->
+    <div class="card colourss">
+      <div class="card-image-wrapper">
+        <img src="./gym img1.webp" alt="PLAY">
+        <div class="card-overlay-text">
+          <div class="overlay-title">Vitalpass PLAY</div>
+          <!-- <div class="overlay-subtitle"><h3></h3></div> -->
+        </div>
+      </div>
+      <div class="card-content">
+        <h3>Unlimited access to</h3>
+        <ul>
+          <li>Badminton, swimming & other sports</li>
+          <li>Guaranteed playing partner</li>
+          <li>Guided sessions with experts</li>
+        </ul>
+      </div>
+    </div>
+    
+
+    <!-- SELECT Card -->
+    <div class="card colourss">
+      <div class="card-image-wrapper">
+        <img src="./gym-motivation-to-exercise-nao4yojxdchpyi3s.jpg" alt="SELECT">
+        <div class="card-overlay-text">
+          <div class="overlay-title">vitalpass SELECT</div>
+          <!-- <div class="overlay-subtitle"><h3></h3></div> -->
+        </div>
+      </div>
+      <div class="card-content">
+        <h3>Unlimited access to</h3>
+        <ul>
+          <li>One center that you choose</li>
+          <li>Limited sessions* in other centers & gyms</li>
+          <li>At-home live workouts</li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="bod">
+  <div class="vital-section">
+    <h1 class="vital-title">Join the vital family</h1>
+    <div class="vital-container">
+      <div class="vital-career">
+        <h2 class="vital-subtitle">Careers at vital</h2>
+        <!-- <div class="vital-team">
+          <img src="https://via.placeholder.com/80" alt="Team Member 1" class="vital-avatar" style="top: 20px; left: 30px;">
+          <img src="https://via.placeholder.com/80" alt="Team Member 2" class="vital-avatar" style="top: 120px; left: 130px;">
+          <img src="https://via.placeholder.com/80" alt="Team Member 3" class="vital-avatar" style="top: 20px; left: 240px;">
+          <img src="https://via.placeholder.com/80" alt="Team Member 4" class="vital-avatar" style="top: 120px; left: 350px;">
+          <img src="https://via.placeholder.com/80" alt="Team Member 5" class="vital-avatar" style="top: 20px; left: 450px;">
+        </div> -->
+        <div class="vital-team">
+          <img src="https://www.marie-claire.es/wp-content/uploads/sites/2/2025/03/no-necesitas-hacer-abdominales-para-un-core-fuerte-ejercicios-de-pie.jpg?resize=300" alt="Team Member 1" class="vital-avatar 1" style="top: 10%; left: 5%;">
+          <img src="https://thumbs.dreamstime.com/z/portrait-adult-blonde-fitness-woman-personal-trainer-folded-hands-gym-beautiful-smiling-female-looking-camera-137086509.jpg" alt="Team Member 2" class="vital-avatar 2" style="top: 60%; left: 25%;">
+          <img src="https://thumbs.dreamstime.com/b/proud-fitness-trainer-his-gym-confident-exercise-coach-gym-indian-fit-man-arms-crossed-bodybuilding-creates-proud-263412438.jpg" alt="Team Member 3" class="vital-avatar 3" style="top: 10%; left: 45%;">
+          <img src="https://thumbs.dreamstime.com/z/female-personal-trainer-holding-kettlebell-gym-104809829.jpg" alt="Team Member 4" class="vital-avatar 4" style="top: 60%; left: 60%;">
+          <img src="https://www.mmagyms.net/wp-content/uploads/2020/01/Personal-Trainer-Packages.png" alt="Team Member 5" class="vital-avatar 5" style="top: 10%; left: 80%;">
+        </div>
+        <a href="#" class="vital-link">LEARN MORE</a>
+      </div>
+      <div class="vital-franchise">
+        <h2 class="vital-subtitle">vital.fit franchise<br>opportunities</h2>
+        <p class="vital-text">Partner with the largest fitness brand in India</p>
+        <a href="#" class="vital-link" style="margin-top: 160px;">LEARN MORE</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bodys">
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo">
+      <img src="./ChatGPT Image Apr 11, 2025, 12_50_22 PM.png" alt="vital.fit logo">
+      <span>vital.fit</span>
+    </div>
+    <p class="footer-description">
+      At vital.fit, we make group workouts fun, daily food healthy & tasty, mental fitness easy with yoga & meditation, Medical & lifestyle care hassle-free. <strong>#BeBetterEveryDay</strong>
+    </p>
+  </div>
+
+  <div class="footer-columns">
+    <div class="footer-column">
+      <a href="#">vital.fit for business</a>
+      <a href="#">vital.fit franchise</a>
+      <a href="#">corporate partnerships</a>
+      <a href="#">vital pass network</a>
+      <a href="#">t&c for business</a>
+    </div>
+    <div class="footer-column">
+      <a href="#">partner.fit</a>
+      <a href="#">blogs</a>
+      <a href="#">security</a>
+      <a href="#">careers</a>
+    </div>
+    <div class="footer-column">
+      <a href="#">contact us</a>
+      <a href="#">privacy policy</a>
+      <a href="#">vital bmi calculator</a>
+      <a href="#">terms & conditions</a>
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <div class="store-buttons">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+    </div>
+    <div class="social-icons">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" alt="Facebook">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      
+    </div>
+  </div>
+</footer>
+</section>
+
+
+<div class="related-searches">
+  <h3>Related Searches</h3>
+  <div class="related-columns">
+    <ul>
+      <li>Gym Near Me</li>
+      <li>Yoga Postures for Beginners</li>
+      <li>Bedtime Stories for Kids</li>
+      <li>Gyms in Pune</li>
+      <li>Gyms in Chandigarh</li>
+      <li>Strength Training</li>
+      <li>Core Exercises</li>
+      <li>Fitness Glossary</li>
+    </ul>
+    <ul>
+      <li>Face Yoga</li>
+      <li>Surya Namaskar for Beginners</li>
+      <li>Meditation in Hindi</li>
+      <li>Gyms in Hyderabad</li>
+      <li>Gyms in Indore</li>
+      <li>Mobility Exercises</li>
+      <li>Butt Exercises</li>
+      <li>Morning Exercise</li>
+    </ul>
+    <ul>
+      <li>Healthy Recipes</li>
+      <li>Yoga For Stress Relief</li>
+      <li>Mindfulness Meditation</li>
+      <li>Gyms in Chennai</li>
+      <li>Gyms in Coimbatore</li>
+      <li>Kids Exercise</li>
+      <li>Arm Workout at Home</li>
+      <li>Home Workouts</li>
+    </ul>
+    <ul>
+      <li>Chest Exercises</li>
+      <li>Yoga Asanas</li>
+      <li>Yoga Nidra</li>
+      <li>Gyms in Jaipur</li>
+      <li>Gyms in Bangalore</li>
+      <li>How to Lose Weight</li>
+      <li>Back Exercises at Home</li>
+    </ul>
+    <ul>
+      <li>Exercise To Reduce Belly Fat</li>
+      <li>Meditation Music</li>
+      <li>Gyms in Mumbai</li>
+      <li>Gyms in Kolkata</li>
+      <li>Belly Fat Loss Exercise</li>
+      <li>HIIT Workout</li>
+      <li>Abs Workout at Home</li>
+    </ul>
+    <ul>
+      <li>Six Pack Workout</li>
+      <li>Pranayama</li>
+      <li>Gyms in Delhi</li>
+      <li>Gyms in Ahmedabad</li>
+      <li>Weight Loss Exercise</li>
+      <li>Exercises for Toned Body</li>
+      <li>Thigh Exercises</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- Scroll Animation Script -->
+<script>
+  const target = document.getElementById("scroll-banner");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  observer.observe(target);
+</script>
+
+ 
+</body>
+</html>
